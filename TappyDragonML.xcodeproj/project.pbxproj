@@ -147,11 +147,12 @@
 		85468C0E1CA61715000EE8C1 /* TappyDragonML */ = {
 			isa = PBXGroup;
 			children = (
+				85468C721CA61BEB000EE8C1 /* Controller */,
+				85468C711CA61BD5000EE8C1 /* View */,
+				85468C701CA61BA4000EE8C1 /* Model */,
 				85468C6F1CA61775000EE8C1 /* Assets */,
 				85468C0F1CA61715000EE8C1 /* AppDelegate.swift */,
 				85468C111CA61715000EE8C1 /* GameScene.sks */,
-				85468C131CA61715000EE8C1 /* GameScene.swift */,
-				85468C151CA61715000EE8C1 /* GameViewController.swift */,
 				85468C171CA61715000EE8C1 /* Main.storyboard */,
 				85468C1A1CA61715000EE8C1 /* Assets.xcassets */,
 				85468C1C1CA61715000EE8C1 /* LaunchScreen.storyboard */,
@@ -206,6 +207,29 @@
 				85468C571CA61729000EE8C1 /* ic_launcher.png */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		85468C701CA61BA4000EE8C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		85468C711CA61BD5000EE8C1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				85468C131CA61715000EE8C1 /* GameScene.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		85468C721CA61BEB000EE8C1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				85468C151CA61715000EE8C1 /* GameViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
