@@ -17,6 +17,7 @@
 		85468C291CA61715000EE8C1 /* TappyDragonMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85468C281CA61715000EE8C1 /* TappyDragonMLTests.swift */; };
 		85468C341CA61715000EE8C1 /* TappyDragonMLUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85468C331CA61715000EE8C1 /* TappyDragonMLUITests.swift */; };
 		85468C761CA6214D000EE8C1 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 85468C751CA6214D000EE8C1 /* Assets */; };
+		85468C781CA6340A000EE8C1 /* Dragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85468C771CA6340A000EE8C1 /* Dragon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		85468C331CA61715000EE8C1 /* TappyDragonMLUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappyDragonMLUITests.swift; sourceTree = "<group>"; };
 		85468C351CA61715000EE8C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85468C751CA6214D000EE8C1 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		85468C771CA6340A000EE8C1 /* Dragon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dragon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				85468C751CA6214D000EE8C1 /* Assets */,
-				85468C721CA61BEB000EE8C1 /* Controller */,
-				85468C711CA61BD5000EE8C1 /* View */,
 				85468C701CA61BA4000EE8C1 /* Model */,
+				85468C711CA61BD5000EE8C1 /* View */,
+				85468C721CA61BEB000EE8C1 /* Controller */,
 				85468C0F1CA61715000EE8C1 /* AppDelegate.swift */,
 				85468C111CA61715000EE8C1 /* GameScene.sks */,
 				85468C171CA61715000EE8C1 /* Main.storyboard */,
@@ -138,6 +140,7 @@
 		85468C701CA61BA4000EE8C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				85468C771CA6340A000EE8C1 /* Dragon.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				TargetAttributes = {
 					85468C0B1CA61714000EE8C1 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = DTE53VW5CQ;
 					};
 					85468C231CA61715000EE8C1 = {
 						CreatedOnToolsVersion = 7.3;
@@ -293,6 +297,7 @@
 			files = (
 				85468C141CA61715000EE8C1 /* GameScene.swift in Sources */,
 				85468C161CA61715000EE8C1 /* GameViewController.swift in Sources */,
+				85468C781CA6340A000EE8C1 /* Dragon.swift in Sources */,
 				85468C101CA61715000EE8C1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,10 +440,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TappyDragonML/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ihanken.TappyDragonML;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -446,10 +454,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TappyDragonML/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ihanken.TappyDragonML;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -9,14 +9,50 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+    
+    let screenWidth = UIScreen.mainScreen().bounds.width
+    let screenHeight = UIScreen.mainScreen().bounds.height
+    
+    var backgroundLayer = SKNode()
+    var midgroundLayer = SKNode()
+    var foregroundLayer = SKNode()
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder) is not used in this app")
+    }
+    
+    override init(size: CGSize) {
+        super.init(size: size)
         
-        self.addChild(myLabel)
+        anchorPoint = CGPoint(x: 0.0, y: 0.0)
+        
+        let background = SKSpriteNode(imageNamed: "background")
+        let midgroundSky = SKSpriteNode(imageNamed: "layer3")
+        let midgroundGround = SKSpriteNode(imageNamed: "layer2dark")
+        let foreground = SKSpriteNode(imageNamed: "layer1dark")
+        
+        midgroundSky.setScale(0.25)
+        midgroundGround.setScale(0.4)
+        foreground.setScale(0.2)
+        
+        background.anchorPoint = CGPoint(x: 0, y: 0)
+        midgroundSky.anchorPoint = CGPoint(x: 0, y: 0)
+        midgroundGround.anchorPoint = CGPoint(x: 0, y: 0)
+        foreground.anchorPoint = CGPoint(x: 0, y: 0)
+        
+        background.position = CGPoint(x: 0.0, y: -(background.frame.height - screenHeight))
+        midgroundSky.anchorPoint = CGPoint(x: 0, y: -(midgroundSky.frame.height - screenHeight))
+        midgroundGround.position = CGPoint(x: 0, y: 0)
+        foreground.position = CGPoint(x: 0, y: 0)
+        
+        addChild(backgroundLayer)
+        addChild(midgroundLayer)
+        addChild(foregroundLayer)
+        
+        backgroundLayer.addChild(background)
+        midgroundLayer.addChild(midgroundSky)
+        midgroundLayer.addChild(midgroundGround)
+        foregroundLayer.addChild(foreground)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -30,10 +66,6 @@ class GameScene: SKScene {
             sprite.xScale = 0.5
             sprite.yScale = 0.5
             sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
             
             self.addChild(sprite)
         }
