@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		85468C101CA61715000EE8C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85468C0F1CA61715000EE8C1 /* AppDelegate.swift */; };
+		85468C121CA61715000EE8C1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 85468C111CA61715000EE8C1 /* GameScene.sks */; };
+		85468C141CA61715000EE8C1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85468C131CA61715000EE8C1 /* GameScene.swift */; };
+		85468C161CA61715000EE8C1 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85468C151CA61715000EE8C1 /* GameViewController.swift */; };
+		85468C191CA61715000EE8C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85468C171CA61715000EE8C1 /* Main.storyboard */; };
+		85468C1B1CA61715000EE8C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85468C1A1CA61715000EE8C1 /* Assets.xcassets */; };
+		85468C1E1CA61715000EE8C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85468C1C1CA61715000EE8C1 /* LaunchScreen.storyboard */; };
+		85468C291CA61715000EE8C1 /* TappyDragonMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85468C281CA61715000EE8C1 /* TappyDragonMLTests.swift */; };
+		85468C341CA61715000EE8C1 /* TappyDragonMLUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85468C331CA61715000EE8C1 /* TappyDragonMLUITests.swift */; };
+		85468C581CA61729000EE8C1 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C411CA61729000EE8C1 /* background.png */; };
+		85468C591CA61729000EE8C1 /* dragon.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C421CA61729000EE8C1 /* dragon.png */; };
+		85468C5A1CA61729000EE8C1 /* froghatsoftware.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C431CA61729000EE8C1 /* froghatsoftware.png */; };
+		85468C5B1CA61729000EE8C1 /* gameover.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C441CA61729000EE8C1 /* gameover.png */; };
+		85468C5C1CA61729000EE8C1 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C451CA61729000EE8C1 /* gear.png */; };
+		85468C5D1CA61729000EE8C1 /* get_ready.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C461CA61729000EE8C1 /* get_ready.png */; };
+		85468C5E1CA61729000EE8C1 /* gibs.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C471CA61729000EE8C1 /* gibs.png */; };
+		85468C5F1CA61729000EE8C1 /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C481CA61729000EE8C1 /* ic_launcher.png */; };
+		85468C601CA61729000EE8C1 /* layer1dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C491CA61729000EE8C1 /* layer1dark.png */; };
+		85468C611CA61729000EE8C1 /* layer2dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C4A1CA61729000EE8C1 /* layer2dark.png */; };
+		85468C621CA61729000EE8C1 /* layer3.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C4B1CA61729000EE8C1 /* layer3.png */; };
+		85468C631CA61729000EE8C1 /* playbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C4C1CA61729000EE8C1 /* playbutton.png */; };
+		85468C641CA61729000EE8C1 /* pole1.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C4D1CA61729000EE8C1 /* pole1.png */; };
+		85468C651CA61729000EE8C1 /* pole2.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C4E1CA61729000EE8C1 /* pole2.png */; };
+		85468C661CA61729000EE8C1 /* ratebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C4F1CA61729000EE8C1 /* ratebutton.png */; };
+		85468C671CA61729000EE8C1 /* ratebutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C501CA61729000EE8C1 /* ratebutton2.png */; };
+		85468C681CA61729000EE8C1 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C511CA61729000EE8C1 /* splash.png */; };
+		85468C691CA61729000EE8C1 /* tap.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C521CA61729000EE8C1 /* tap.png */; };
+		85468C6A1CA61729000EE8C1 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C531CA61729000EE8C1 /* title.png */; };
+		85468C6B1CA61729000EE8C1 /* tweetbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C541CA61729000EE8C1 /* tweetbutton.png */; };
+		85468C6C1CA61729000EE8C1 /* tweetscorebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C551CA61729000EE8C1 /* tweetscorebutton.png */; };
+		85468C6D1CA61729000EE8C1 /* twitterbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C561CA61729000EE8C1 /* twitterbutton.png */; };
+		85468C6E1CA61729000EE8C1 /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C571CA61729000EE8C1 /* ic_launcher.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		85468C251CA61715000EE8C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85468C041CA61714000EE8C1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85468C0B1CA61714000EE8C1;
+			remoteInfo = TappyDragonML;
+		};
+		85468C301CA61715000EE8C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85468C041CA61714000EE8C1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85468C0B1CA61714000EE8C1;
+			remoteInfo = TappyDragonML;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		85468C0C1CA61714000EE8C1 /* TappyDragonML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TappyDragonML.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85468C0F1CA61715000EE8C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		85468C111CA61715000EE8C1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		85468C131CA61715000EE8C1 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		85468C151CA61715000EE8C1 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		85468C181CA61715000EE8C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		85468C1A1CA61715000EE8C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		85468C1D1CA61715000EE8C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		85468C1F1CA61715000EE8C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85468C241CA61715000EE8C1 /* TappyDragonMLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TappyDragonMLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85468C281CA61715000EE8C1 /* TappyDragonMLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappyDragonMLTests.swift; sourceTree = "<group>"; };
+		85468C2A1CA61715000EE8C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85468C2F1CA61715000EE8C1 /* TappyDragonMLUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TappyDragonMLUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85468C331CA61715000EE8C1 /* TappyDragonMLUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappyDragonMLUITests.swift; sourceTree = "<group>"; };
+		85468C351CA61715000EE8C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85468C411CA61729000EE8C1 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/background.png"; sourceTree = "<group>"; };
+		85468C421CA61729000EE8C1 /* dragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/dragon.png"; sourceTree = "<group>"; };
+		85468C431CA61729000EE8C1 /* froghatsoftware.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = froghatsoftware.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/froghatsoftware.png"; sourceTree = "<group>"; };
+		85468C441CA61729000EE8C1 /* gameover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gameover.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/gameover.png"; sourceTree = "<group>"; };
+		85468C451CA61729000EE8C1 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gear.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/gear.png"; sourceTree = "<group>"; };
+		85468C461CA61729000EE8C1 /* get_ready.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = get_ready.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/get_ready.png"; sourceTree = "<group>"; };
+		85468C471CA61729000EE8C1 /* gibs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gibs.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/gibs.png"; sourceTree = "<group>"; };
+		85468C481CA61729000EE8C1 /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_launcher.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/ic_launcher.png"; sourceTree = "<group>"; };
+		85468C491CA61729000EE8C1 /* layer1dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = layer1dark.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/layer1dark.png"; sourceTree = "<group>"; };
+		85468C4A1CA61729000EE8C1 /* layer2dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = layer2dark.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/layer2dark.png"; sourceTree = "<group>"; };
+		85468C4B1CA61729000EE8C1 /* layer3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = layer3.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/layer3.png"; sourceTree = "<group>"; };
+		85468C4C1CA61729000EE8C1 /* playbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playbutton.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/playbutton.png"; sourceTree = "<group>"; };
+		85468C4D1CA61729000EE8C1 /* pole1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pole1.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/pole1.png"; sourceTree = "<group>"; };
+		85468C4E1CA61729000EE8C1 /* pole2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pole2.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/pole2.png"; sourceTree = "<group>"; };
+		85468C4F1CA61729000EE8C1 /* ratebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ratebutton.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/ratebutton.png"; sourceTree = "<group>"; };
+		85468C501CA61729000EE8C1 /* ratebutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ratebutton2.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/ratebutton2.png"; sourceTree = "<group>"; };
+		85468C511CA61729000EE8C1 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/splash.png"; sourceTree = "<group>"; };
+		85468C521CA61729000EE8C1 /* tap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tap.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/tap.png"; sourceTree = "<group>"; };
+		85468C531CA61729000EE8C1 /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = title.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/title.png"; sourceTree = "<group>"; };
+		85468C541CA61729000EE8C1 /* tweetbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tweetbutton.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/tweetbutton.png"; sourceTree = "<group>"; };
+		85468C551CA61729000EE8C1 /* tweetscorebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tweetscorebutton.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/tweetscorebutton.png"; sourceTree = "<group>"; };
+		85468C561CA61729000EE8C1 /* twitterbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twitterbutton.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/twitterbutton.png"; sourceTree = "<group>"; };
+		85468C571CA61729000EE8C1 /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_launcher.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-xxhdpi/ic_launcher.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		85468C091CA61714000EE8C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85468C211CA61715000EE8C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85468C2C1CA61715000EE8C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		85468C031CA61714000EE8C1 = {
+			isa = PBXGroup;
+			children = (
+				85468C0E1CA61715000EE8C1 /* TappyDragonML */,
+				85468C271CA61715000EE8C1 /* TappyDragonMLTests */,
+				85468C321CA61715000EE8C1 /* TappyDragonMLUITests */,
+				85468C0D1CA61714000EE8C1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		85468C0D1CA61714000EE8C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85468C0C1CA61714000EE8C1 /* TappyDragonML.app */,
+				85468C241CA61715000EE8C1 /* TappyDragonMLTests.xctest */,
+				85468C2F1CA61715000EE8C1 /* TappyDragonMLUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		85468C0E1CA61715000EE8C1 /* TappyDragonML */ = {
+			isa = PBXGroup;
+			children = (
+				85468C6F1CA61775000EE8C1 /* Assets */,
+				85468C0F1CA61715000EE8C1 /* AppDelegate.swift */,
+				85468C111CA61715000EE8C1 /* GameScene.sks */,
+				85468C131CA61715000EE8C1 /* GameScene.swift */,
+				85468C151CA61715000EE8C1 /* GameViewController.swift */,
+				85468C171CA61715000EE8C1 /* Main.storyboard */,
+				85468C1A1CA61715000EE8C1 /* Assets.xcassets */,
+				85468C1C1CA61715000EE8C1 /* LaunchScreen.storyboard */,
+				85468C1F1CA61715000EE8C1 /* Info.plist */,
+			);
+			path = TappyDragonML;
+			sourceTree = "<group>";
+		};
+		85468C271CA61715000EE8C1 /* TappyDragonMLTests */ = {
+			isa = PBXGroup;
+			children = (
+				85468C281CA61715000EE8C1 /* TappyDragonMLTests.swift */,
+				85468C2A1CA61715000EE8C1 /* Info.plist */,
+			);
+			path = TappyDragonMLTests;
+			sourceTree = "<group>";
+		};
+		85468C321CA61715000EE8C1 /* TappyDragonMLUITests */ = {
+			isa = PBXGroup;
+			children = (
+				85468C331CA61715000EE8C1 /* TappyDragonMLUITests.swift */,
+				85468C351CA61715000EE8C1 /* Info.plist */,
+			);
+			path = TappyDragonMLUITests;
+			sourceTree = "<group>";
+		};
+		85468C6F1CA61775000EE8C1 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				85468C411CA61729000EE8C1 /* background.png */,
+				85468C421CA61729000EE8C1 /* dragon.png */,
+				85468C431CA61729000EE8C1 /* froghatsoftware.png */,
+				85468C441CA61729000EE8C1 /* gameover.png */,
+				85468C451CA61729000EE8C1 /* gear.png */,
+				85468C461CA61729000EE8C1 /* get_ready.png */,
+				85468C471CA61729000EE8C1 /* gibs.png */,
+				85468C481CA61729000EE8C1 /* ic_launcher.png */,
+				85468C491CA61729000EE8C1 /* layer1dark.png */,
+				85468C4A1CA61729000EE8C1 /* layer2dark.png */,
+				85468C4B1CA61729000EE8C1 /* layer3.png */,
+				85468C4C1CA61729000EE8C1 /* playbutton.png */,
+				85468C4D1CA61729000EE8C1 /* pole1.png */,
+				85468C4E1CA61729000EE8C1 /* pole2.png */,
+				85468C4F1CA61729000EE8C1 /* ratebutton.png */,
+				85468C501CA61729000EE8C1 /* ratebutton2.png */,
+				85468C511CA61729000EE8C1 /* splash.png */,
+				85468C521CA61729000EE8C1 /* tap.png */,
+				85468C531CA61729000EE8C1 /* title.png */,
+				85468C541CA61729000EE8C1 /* tweetbutton.png */,
+				85468C551CA61729000EE8C1 /* tweetscorebutton.png */,
+				85468C561CA61729000EE8C1 /* twitterbutton.png */,
+				85468C571CA61729000EE8C1 /* ic_launcher.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		85468C0B1CA61714000EE8C1 /* TappyDragonML */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85468C381CA61715000EE8C1 /* Build configuration list for PBXNativeTarget "TappyDragonML" */;
+			buildPhases = (
+				85468C081CA61714000EE8C1 /* Sources */,
+				85468C091CA61714000EE8C1 /* Frameworks */,
+				85468C0A1CA61714000EE8C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TappyDragonML;
+			productName = TappyDragonML;
+			productReference = 85468C0C1CA61714000EE8C1 /* TappyDragonML.app */;
+			productType = "com.apple.product-type.application";
+		};
+		85468C231CA61715000EE8C1 /* TappyDragonMLTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85468C3B1CA61715000EE8C1 /* Build configuration list for PBXNativeTarget "TappyDragonMLTests" */;
+			buildPhases = (
+				85468C201CA61715000EE8C1 /* Sources */,
+				85468C211CA61715000EE8C1 /* Frameworks */,
+				85468C221CA61715000EE8C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				85468C261CA61715000EE8C1 /* PBXTargetDependency */,
+			);
+			name = TappyDragonMLTests;
+			productName = TappyDragonMLTests;
+			productReference = 85468C241CA61715000EE8C1 /* TappyDragonMLTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		85468C2E1CA61715000EE8C1 /* TappyDragonMLUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85468C3E1CA61715000EE8C1 /* Build configuration list for PBXNativeTarget "TappyDragonMLUITests" */;
+			buildPhases = (
+				85468C2B1CA61715000EE8C1 /* Sources */,
+				85468C2C1CA61715000EE8C1 /* Frameworks */,
+				85468C2D1CA61715000EE8C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				85468C311CA61715000EE8C1 /* PBXTargetDependency */,
+			);
+			name = TappyDragonMLUITests;
+			productName = TappyDragonMLUITests;
+			productReference = 85468C2F1CA61715000EE8C1 /* TappyDragonMLUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		85468C041CA61714000EE8C1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Ian Hanken";
+				TargetAttributes = {
+					85468C0B1CA61714000EE8C1 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					85468C231CA61715000EE8C1 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 85468C0B1CA61714000EE8C1;
+					};
+					85468C2E1CA61715000EE8C1 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 85468C0B1CA61714000EE8C1;
+					};
+				};
+			};
+			buildConfigurationList = 85468C071CA61714000EE8C1 /* Build configuration list for PBXProject "TappyDragonML" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 85468C031CA61714000EE8C1;
+			productRefGroup = 85468C0D1CA61714000EE8C1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				85468C0B1CA61714000EE8C1 /* TappyDragonML */,
+				85468C231CA61715000EE8C1 /* TappyDragonMLTests */,
+				85468C2E1CA61715000EE8C1 /* TappyDragonMLUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		85468C0A1CA61714000EE8C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85468C6A1CA61729000EE8C1 /* title.png in Resources */,
+				85468C611CA61729000EE8C1 /* layer2dark.png in Resources */,
+				85468C681CA61729000EE8C1 /* splash.png in Resources */,
+				85468C641CA61729000EE8C1 /* pole1.png in Resources */,
+				85468C121CA61715000EE8C1 /* GameScene.sks in Resources */,
+				85468C581CA61729000EE8C1 /* background.png in Resources */,
+				85468C631CA61729000EE8C1 /* playbutton.png in Resources */,
+				85468C6C1CA61729000EE8C1 /* tweetscorebutton.png in Resources */,
+				85468C5C1CA61729000EE8C1 /* gear.png in Resources */,
+				85468C5E1CA61729000EE8C1 /* gibs.png in Resources */,
+				85468C5A1CA61729000EE8C1 /* froghatsoftware.png in Resources */,
+				85468C691CA61729000EE8C1 /* tap.png in Resources */,
+				85468C661CA61729000EE8C1 /* ratebutton.png in Resources */,
+				85468C601CA61729000EE8C1 /* layer1dark.png in Resources */,
+				85468C591CA61729000EE8C1 /* dragon.png in Resources */,
+				85468C1E1CA61715000EE8C1 /* LaunchScreen.storyboard in Resources */,
+				85468C6B1CA61729000EE8C1 /* tweetbutton.png in Resources */,
+				85468C5F1CA61729000EE8C1 /* ic_launcher.png in Resources */,
+				85468C621CA61729000EE8C1 /* layer3.png in Resources */,
+				85468C6E1CA61729000EE8C1 /* ic_launcher.png in Resources */,
+				85468C6D1CA61729000EE8C1 /* twitterbutton.png in Resources */,
+				85468C5B1CA61729000EE8C1 /* gameover.png in Resources */,
+				85468C651CA61729000EE8C1 /* pole2.png in Resources */,
+				85468C671CA61729000EE8C1 /* ratebutton2.png in Resources */,
+				85468C1B1CA61715000EE8C1 /* Assets.xcassets in Resources */,
+				85468C5D1CA61729000EE8C1 /* get_ready.png in Resources */,
+				85468C191CA61715000EE8C1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85468C221CA61715000EE8C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85468C2D1CA61715000EE8C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		85468C081CA61714000EE8C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85468C141CA61715000EE8C1 /* GameScene.swift in Sources */,
+				85468C161CA61715000EE8C1 /* GameViewController.swift in Sources */,
+				85468C101CA61715000EE8C1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85468C201CA61715000EE8C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85468C291CA61715000EE8C1 /* TappyDragonMLTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85468C2B1CA61715000EE8C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85468C341CA61715000EE8C1 /* TappyDragonMLUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		85468C261CA61715000EE8C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 85468C0B1CA61714000EE8C1 /* TappyDragonML */;
+			targetProxy = 85468C251CA61715000EE8C1 /* PBXContainerItemProxy */;
+		};
+		85468C311CA61715000EE8C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 85468C0B1CA61714000EE8C1 /* TappyDragonML */;
+			targetProxy = 85468C301CA61715000EE8C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		85468C171CA61715000EE8C1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85468C181CA61715000EE8C1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		85468C1C1CA61715000EE8C1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85468C1D1CA61715000EE8C1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		85468C361CA61715000EE8C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		85468C371CA61715000EE8C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		85468C391CA61715000EE8C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TappyDragonML/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihanken.TappyDragonML;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		85468C3A1CA61715000EE8C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TappyDragonML/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihanken.TappyDragonML;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		85468C3C1CA61715000EE8C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = TappyDragonMLTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihanken.TappyDragonMLTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TappyDragonML.app/TappyDragonML";
+			};
+			name = Debug;
+		};
+		85468C3D1CA61715000EE8C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TappyDragonMLTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihanken.TappyDragonMLTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TappyDragonML.app/TappyDragonML";
+			};
+			name = Release;
+		};
+		85468C3F1CA61715000EE8C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = TappyDragonMLUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihanken.TappyDragonMLUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TappyDragonML;
+			};
+			name = Debug;
+		};
+		85468C401CA61715000EE8C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TappyDragonMLUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihanken.TappyDragonMLUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TappyDragonML;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		85468C071CA61714000EE8C1 /* Build configuration list for PBXProject "TappyDragonML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85468C361CA61715000EE8C1 /* Debug */,
+				85468C371CA61715000EE8C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85468C381CA61715000EE8C1 /* Build configuration list for PBXNativeTarget "TappyDragonML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85468C391CA61715000EE8C1 /* Debug */,
+				85468C3A1CA61715000EE8C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		85468C3B1CA61715000EE8C1 /* Build configuration list for PBXNativeTarget "TappyDragonMLTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85468C3C1CA61715000EE8C1 /* Debug */,
+				85468C3D1CA61715000EE8C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		85468C3E1CA61715000EE8C1 /* Build configuration list for PBXNativeTarget "TappyDragonMLUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85468C3F1CA61715000EE8C1 /* Debug */,
+				85468C401CA61715000EE8C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 85468C041CA61714000EE8C1 /* Project object */;
+}
