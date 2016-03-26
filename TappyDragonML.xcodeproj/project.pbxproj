@@ -39,6 +39,7 @@
 		85468C6C1CA61729000EE8C1 /* tweetscorebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C551CA61729000EE8C1 /* tweetscorebutton.png */; };
 		85468C6D1CA61729000EE8C1 /* twitterbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C561CA61729000EE8C1 /* twitterbutton.png */; };
 		85468C6E1CA61729000EE8C1 /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C571CA61729000EE8C1 /* ic_launcher.png */; };
+		85468C741CA61F77000EE8C1 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85468C731CA61F77000EE8C1 /* Commit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		85468C551CA61729000EE8C1 /* tweetscorebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tweetscorebutton.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/tweetscorebutton.png"; sourceTree = "<group>"; };
 		85468C561CA61729000EE8C1 /* twitterbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twitterbutton.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/twitterbutton.png"; sourceTree = "<group>"; };
 		85468C571CA61729000EE8C1 /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_launcher.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-xxhdpi/ic_launcher.png"; sourceTree = "<group>"; };
+		85468C731CA61F77000EE8C1 /* Commit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 				85468C551CA61729000EE8C1 /* tweetscorebutton.png */,
 				85468C561CA61729000EE8C1 /* twitterbutton.png */,
 				85468C571CA61729000EE8C1 /* ic_launcher.png */,
+				85468C731CA61F77000EE8C1 /* Commit.swift */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85468C741CA61F77000EE8C1 /* Commit.swift in Sources */,
 				85468C141CA61715000EE8C1 /* GameScene.swift in Sources */,
 				85468C161CA61715000EE8C1 /* GameViewController.swift in Sources */,
 				85468C101CA61715000EE8C1 /* AppDelegate.swift in Sources */,
