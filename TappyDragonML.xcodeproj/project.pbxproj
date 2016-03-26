@@ -16,30 +16,7 @@
 		85468C1E1CA61715000EE8C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85468C1C1CA61715000EE8C1 /* LaunchScreen.storyboard */; };
 		85468C291CA61715000EE8C1 /* TappyDragonMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85468C281CA61715000EE8C1 /* TappyDragonMLTests.swift */; };
 		85468C341CA61715000EE8C1 /* TappyDragonMLUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85468C331CA61715000EE8C1 /* TappyDragonMLUITests.swift */; };
-		85468C581CA61729000EE8C1 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C411CA61729000EE8C1 /* background.png */; };
-		85468C591CA61729000EE8C1 /* dragon.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C421CA61729000EE8C1 /* dragon.png */; };
-		85468C5A1CA61729000EE8C1 /* froghatsoftware.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C431CA61729000EE8C1 /* froghatsoftware.png */; };
-		85468C5B1CA61729000EE8C1 /* gameover.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C441CA61729000EE8C1 /* gameover.png */; };
-		85468C5C1CA61729000EE8C1 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C451CA61729000EE8C1 /* gear.png */; };
-		85468C5D1CA61729000EE8C1 /* get_ready.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C461CA61729000EE8C1 /* get_ready.png */; };
-		85468C5E1CA61729000EE8C1 /* gibs.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C471CA61729000EE8C1 /* gibs.png */; };
-		85468C5F1CA61729000EE8C1 /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C481CA61729000EE8C1 /* ic_launcher.png */; };
-		85468C601CA61729000EE8C1 /* layer1dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C491CA61729000EE8C1 /* layer1dark.png */; };
-		85468C611CA61729000EE8C1 /* layer2dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C4A1CA61729000EE8C1 /* layer2dark.png */; };
-		85468C621CA61729000EE8C1 /* layer3.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C4B1CA61729000EE8C1 /* layer3.png */; };
-		85468C631CA61729000EE8C1 /* playbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C4C1CA61729000EE8C1 /* playbutton.png */; };
-		85468C641CA61729000EE8C1 /* pole1.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C4D1CA61729000EE8C1 /* pole1.png */; };
-		85468C651CA61729000EE8C1 /* pole2.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C4E1CA61729000EE8C1 /* pole2.png */; };
-		85468C661CA61729000EE8C1 /* ratebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C4F1CA61729000EE8C1 /* ratebutton.png */; };
-		85468C671CA61729000EE8C1 /* ratebutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C501CA61729000EE8C1 /* ratebutton2.png */; };
-		85468C681CA61729000EE8C1 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C511CA61729000EE8C1 /* splash.png */; };
-		85468C691CA61729000EE8C1 /* tap.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C521CA61729000EE8C1 /* tap.png */; };
-		85468C6A1CA61729000EE8C1 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C531CA61729000EE8C1 /* title.png */; };
-		85468C6B1CA61729000EE8C1 /* tweetbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C541CA61729000EE8C1 /* tweetbutton.png */; };
-		85468C6C1CA61729000EE8C1 /* tweetscorebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C551CA61729000EE8C1 /* tweetscorebutton.png */; };
-		85468C6D1CA61729000EE8C1 /* twitterbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C561CA61729000EE8C1 /* twitterbutton.png */; };
-		85468C6E1CA61729000EE8C1 /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 85468C571CA61729000EE8C1 /* ic_launcher.png */; };
-		85468C741CA61F77000EE8C1 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85468C731CA61F77000EE8C1 /* Commit.swift */; };
+		85468C761CA6214D000EE8C1 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 85468C751CA6214D000EE8C1 /* Assets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,30 +52,7 @@
 		85468C2F1CA61715000EE8C1 /* TappyDragonMLUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TappyDragonMLUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85468C331CA61715000EE8C1 /* TappyDragonMLUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappyDragonMLUITests.swift; sourceTree = "<group>"; };
 		85468C351CA61715000EE8C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85468C411CA61729000EE8C1 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/background.png"; sourceTree = "<group>"; };
-		85468C421CA61729000EE8C1 /* dragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/dragon.png"; sourceTree = "<group>"; };
-		85468C431CA61729000EE8C1 /* froghatsoftware.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = froghatsoftware.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/froghatsoftware.png"; sourceTree = "<group>"; };
-		85468C441CA61729000EE8C1 /* gameover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gameover.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/gameover.png"; sourceTree = "<group>"; };
-		85468C451CA61729000EE8C1 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gear.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/gear.png"; sourceTree = "<group>"; };
-		85468C461CA61729000EE8C1 /* get_ready.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = get_ready.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/get_ready.png"; sourceTree = "<group>"; };
-		85468C471CA61729000EE8C1 /* gibs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gibs.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/gibs.png"; sourceTree = "<group>"; };
-		85468C481CA61729000EE8C1 /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_launcher.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/ic_launcher.png"; sourceTree = "<group>"; };
-		85468C491CA61729000EE8C1 /* layer1dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = layer1dark.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/layer1dark.png"; sourceTree = "<group>"; };
-		85468C4A1CA61729000EE8C1 /* layer2dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = layer2dark.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/layer2dark.png"; sourceTree = "<group>"; };
-		85468C4B1CA61729000EE8C1 /* layer3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = layer3.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/layer3.png"; sourceTree = "<group>"; };
-		85468C4C1CA61729000EE8C1 /* playbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playbutton.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/playbutton.png"; sourceTree = "<group>"; };
-		85468C4D1CA61729000EE8C1 /* pole1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pole1.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/pole1.png"; sourceTree = "<group>"; };
-		85468C4E1CA61729000EE8C1 /* pole2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pole2.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/pole2.png"; sourceTree = "<group>"; };
-		85468C4F1CA61729000EE8C1 /* ratebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ratebutton.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/ratebutton.png"; sourceTree = "<group>"; };
-		85468C501CA61729000EE8C1 /* ratebutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ratebutton2.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/ratebutton2.png"; sourceTree = "<group>"; };
-		85468C511CA61729000EE8C1 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/splash.png"; sourceTree = "<group>"; };
-		85468C521CA61729000EE8C1 /* tap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tap.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/tap.png"; sourceTree = "<group>"; };
-		85468C531CA61729000EE8C1 /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = title.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/title.png"; sourceTree = "<group>"; };
-		85468C541CA61729000EE8C1 /* tweetbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tweetbutton.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/tweetbutton.png"; sourceTree = "<group>"; };
-		85468C551CA61729000EE8C1 /* tweetscorebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tweetscorebutton.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/tweetscorebutton.png"; sourceTree = "<group>"; };
-		85468C561CA61729000EE8C1 /* twitterbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twitterbutton.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-nodpi/twitterbutton.png"; sourceTree = "<group>"; };
-		85468C571CA61729000EE8C1 /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_launcher.png; path = "../../../../Downloads/froghatsoftware-tappy-dragon-a6e2532b2969/res/drawable-xxhdpi/ic_launcher.png"; sourceTree = "<group>"; };
-		85468C731CA61F77000EE8C1 /* Commit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
+		85468C751CA6214D000EE8C1 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,10 +103,10 @@
 		85468C0E1CA61715000EE8C1 /* TappyDragonML */ = {
 			isa = PBXGroup;
 			children = (
+				85468C751CA6214D000EE8C1 /* Assets */,
 				85468C721CA61BEB000EE8C1 /* Controller */,
 				85468C711CA61BD5000EE8C1 /* View */,
 				85468C701CA61BA4000EE8C1 /* Model */,
-				85468C6F1CA61775000EE8C1 /* Assets */,
 				85468C0F1CA61715000EE8C1 /* AppDelegate.swift */,
 				85468C111CA61715000EE8C1 /* GameScene.sks */,
 				85468C171CA61715000EE8C1 /* Main.storyboard */,
@@ -179,37 +133,6 @@
 				85468C351CA61715000EE8C1 /* Info.plist */,
 			);
 			path = TappyDragonMLUITests;
-			sourceTree = "<group>";
-		};
-		85468C6F1CA61775000EE8C1 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				85468C411CA61729000EE8C1 /* background.png */,
-				85468C421CA61729000EE8C1 /* dragon.png */,
-				85468C431CA61729000EE8C1 /* froghatsoftware.png */,
-				85468C441CA61729000EE8C1 /* gameover.png */,
-				85468C451CA61729000EE8C1 /* gear.png */,
-				85468C461CA61729000EE8C1 /* get_ready.png */,
-				85468C471CA61729000EE8C1 /* gibs.png */,
-				85468C481CA61729000EE8C1 /* ic_launcher.png */,
-				85468C491CA61729000EE8C1 /* layer1dark.png */,
-				85468C4A1CA61729000EE8C1 /* layer2dark.png */,
-				85468C4B1CA61729000EE8C1 /* layer3.png */,
-				85468C4C1CA61729000EE8C1 /* playbutton.png */,
-				85468C4D1CA61729000EE8C1 /* pole1.png */,
-				85468C4E1CA61729000EE8C1 /* pole2.png */,
-				85468C4F1CA61729000EE8C1 /* ratebutton.png */,
-				85468C501CA61729000EE8C1 /* ratebutton2.png */,
-				85468C511CA61729000EE8C1 /* splash.png */,
-				85468C521CA61729000EE8C1 /* tap.png */,
-				85468C531CA61729000EE8C1 /* title.png */,
-				85468C541CA61729000EE8C1 /* tweetbutton.png */,
-				85468C551CA61729000EE8C1 /* tweetscorebutton.png */,
-				85468C561CA61729000EE8C1 /* twitterbutton.png */,
-				85468C571CA61729000EE8C1 /* ic_launcher.png */,
-				85468C731CA61F77000EE8C1 /* Commit.swift */,
-			);
-			name = Assets;
 			sourceTree = "<group>";
 		};
 		85468C701CA61BA4000EE8C1 /* Model */ = {
@@ -339,32 +262,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85468C6A1CA61729000EE8C1 /* title.png in Resources */,
-				85468C611CA61729000EE8C1 /* layer2dark.png in Resources */,
-				85468C681CA61729000EE8C1 /* splash.png in Resources */,
-				85468C641CA61729000EE8C1 /* pole1.png in Resources */,
+				85468C761CA6214D000EE8C1 /* Assets in Resources */,
 				85468C121CA61715000EE8C1 /* GameScene.sks in Resources */,
-				85468C581CA61729000EE8C1 /* background.png in Resources */,
-				85468C631CA61729000EE8C1 /* playbutton.png in Resources */,
-				85468C6C1CA61729000EE8C1 /* tweetscorebutton.png in Resources */,
-				85468C5C1CA61729000EE8C1 /* gear.png in Resources */,
-				85468C5E1CA61729000EE8C1 /* gibs.png in Resources */,
-				85468C5A1CA61729000EE8C1 /* froghatsoftware.png in Resources */,
-				85468C691CA61729000EE8C1 /* tap.png in Resources */,
-				85468C661CA61729000EE8C1 /* ratebutton.png in Resources */,
-				85468C601CA61729000EE8C1 /* layer1dark.png in Resources */,
-				85468C591CA61729000EE8C1 /* dragon.png in Resources */,
 				85468C1E1CA61715000EE8C1 /* LaunchScreen.storyboard in Resources */,
-				85468C6B1CA61729000EE8C1 /* tweetbutton.png in Resources */,
-				85468C5F1CA61729000EE8C1 /* ic_launcher.png in Resources */,
-				85468C621CA61729000EE8C1 /* layer3.png in Resources */,
-				85468C6E1CA61729000EE8C1 /* ic_launcher.png in Resources */,
-				85468C6D1CA61729000EE8C1 /* twitterbutton.png in Resources */,
-				85468C5B1CA61729000EE8C1 /* gameover.png in Resources */,
-				85468C651CA61729000EE8C1 /* pole2.png in Resources */,
-				85468C671CA61729000EE8C1 /* ratebutton2.png in Resources */,
 				85468C1B1CA61715000EE8C1 /* Assets.xcassets in Resources */,
-				85468C5D1CA61729000EE8C1 /* get_ready.png in Resources */,
 				85468C191CA61715000EE8C1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,7 +291,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85468C741CA61F77000EE8C1 /* Commit.swift in Sources */,
 				85468C141CA61715000EE8C1 /* GameScene.swift in Sources */,
 				85468C161CA61715000EE8C1 /* GameViewController.swift in Sources */,
 				85468C101CA61715000EE8C1 /* AppDelegate.swift in Sources */,
