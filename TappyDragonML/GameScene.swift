@@ -26,33 +26,66 @@ class GameScene: SKScene {
         
         anchorPoint = CGPoint(x: 0.0, y: 0.0)
         
+        setUpBackground()
+        setUpMidground()
+        setUpForeground()
+    }
+    
+    func setUpBackground() {
         let background = SKSpriteNode(imageNamed: "background")
-        let midgroundSky = SKSpriteNode(imageNamed: "layer3")
-        let midgroundGround = SKSpriteNode(imageNamed: "layer2dark")
-        let foreground = SKSpriteNode(imageNamed: "layer1dark")
         
-        midgroundSky.setScale(0.25)
-        midgroundGround.setScale(0.4)
-        foreground.setScale(0.2)
+        background.anchorPoint = CGPoint(x: 0.0, y: 0)
         
-        background.anchorPoint = CGPoint(x: 0, y: 0)
-        midgroundSky.anchorPoint = CGPoint(x: 0, y: 0)
-        midgroundGround.anchorPoint = CGPoint(x: 0, y: 0)
-        foreground.anchorPoint = CGPoint(x: 0, y: 0)
+        background.position = CGPoint(x: 0.0, y: 0.0)
         
-        background.position = CGPoint(x: 0.0, y: -(background.frame.height - screenHeight))
-        midgroundSky.anchorPoint = CGPoint(x: 0, y: -(midgroundSky.frame.height - screenHeight))
-        midgroundGround.position = CGPoint(x: 0, y: 0)
-        foreground.position = CGPoint(x: 0, y: 0)
+        backgroundLayer.zPosition = 0
         
         addChild(backgroundLayer)
-        addChild(midgroundLayer)
-        addChild(foregroundLayer)
         
         backgroundLayer.addChild(background)
-        midgroundLayer.addChild(midgroundSky)
-        midgroundLayer.addChild(midgroundGround)
-        foregroundLayer.addChild(foreground)
+    }
+    
+    func setUpMidground() {
+//        let midgroundSky = SKSpriteNode(imageNamed: "layer3")
+//        let midgroundGround = SKSpriteNode(imageNamed: "layer2dark")
+//        
+//        midgroundSky.anchorPoint = CGPoint(x: 0, y: 0)
+//        midgroundGround.anchorPoint = CGPoint(x: 0, y: 0)
+//        
+//        midgroundSky.anchorPoint = CGPoint(x: 0, y: 0.0)
+//        midgroundGround.position = CGPoint(x: 0, y: 375)
+        
+        addChild(midgroundLayer)
+        
+        midgroundLayer.zPosition = 1
+        
+        prepareAnimation("layer2dark", layer: midgroundLayer, y: 375, duration: 25)
+        prepareAnimation("layer3", layer: midgroundLayer, y: 0, duration: 15)
+    }
+    
+    func setUpForeground() {
+        addChild(foregroundLayer)
+        foregroundLayer.zPosition = 2
+        
+        prepareAnimation("layer1dark", layer: foregroundLayer, y: 0, duration: 5)
+    }
+    
+    func prepareAnimation(imageName: String, layer: SKNode, y: CGFloat, duration: NSTimeInterval) {
+        for i in 0..<2 {
+            let node = SKSpriteNode(imageNamed: imageName)
+            node.anchorPoint = CGPoint(x: 0, y: 0)
+            node.position = CGPoint(x: (node.size.width * CGFloat(i)) + 0, y: y)
+            node.runAction(animateLeft(node, y: 0, duration: duration))
+            layer.addChild(node)
+        }
+    }
+    
+    func animateLeft(node: SKSpriteNode, y: CGFloat, duration: NSTimeInterval) -> SKAction {
+        let moveLeft = SKAction.moveByX(-node.size.width, y: y, duration: duration)
+        let moveReset = SKAction.moveByX(node.size.width, y: y, duration: 0)
+        let moveLoop = SKAction.sequence([moveLeft, moveReset])
+        
+        return SKAction.repeatActionForever(moveLoop)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
