@@ -21,12 +21,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var poles = SKNode()
     var menu = SKNode()
     var getReady = SKNode()
-    var scoreLabel = SKLabelNode()
-    var tweetScoreButton = SKSpriteNode()
+    var scoreLabel: SKLabelNode?
+    var tweetScoreButton: SKSpriteNode?
     
     var dragon: SKSpriteNode?
     
     var score: Int?
+    
+    var machineLearningOn: Bool?
     
     // SKPhysicsContact constants
     let dragonCategory: UInt32 = 1 << 0
@@ -41,38 +43,45 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override init(size: CGSize) {
         super.init(size: size)
         
+        // Set up the main elements of the scene.
         setUpBackground()
         setUpMidground()
         setUpForeground()
         setUpDragon()
         
+        // Present the menu to the user.
         loadMenu()
     }
     
     func loadMenu() {
+        // Tappy Dragon Title
         let title = SKSpriteNode(imageNamed: "title")
         title.position = CGPointMake(self.size.width / 2, (self.size.height * 3) / 4)
         title.zPosition = 3
         menu.addChild(title)
         
+        // Play Button
         let playButton = SKSpriteNode(imageNamed: "playbutton")
         playButton.name = "playButton"
         playButton.position = CGPointMake((7 * self.size.width) / 24, (2 * self.size.height) / 6)
         playButton.zPosition = 3
         menu.addChild(playButton)
         
+        // Rate Button
         let rateButton = SKSpriteNode(imageNamed: "ratebutton2")
         rateButton.name = "rateButton"
         rateButton.position = CGPointMake((17 * self.size.width) / 24, (2 * self.size.height) / 6)
         rateButton.zPosition = 3
         menu.addChild(rateButton)
         
+        // Twitter Button
         let twitterButton = SKSpriteNode(imageNamed: "twitterbutton")
         twitterButton.name = "twitterButton"
         twitterButton.position = CGPointMake(0.5 * self.size.width, 0.22 * self.size.height)
         twitterButton.zPosition = 3
         menu.addChild(twitterButton)
         
+        // Froghat Software Label
         let froghatLabel = SKSpriteNode(imageNamed: "froghatsoftware")
         froghatLabel.position = CGPointMake(0.5 * self.size.width, 0.11 * self.size.height)
         froghatLabel.zPosition = 3
@@ -82,7 +91,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func getPlayerReady() {
-        menu.removeAllChildren()
+        // Get rid of the menu.
+        menu.removeFromParent()
+        
+        // Set up the get ready screen and present it.
         getReady.zPosition = 4
         
         let getReadyLabel = SKSpriteNode(imageNamed: "get_ready")
@@ -98,7 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func beginGame() {
         // Get rid of the menu
-        menu.removeAllChildren()
+        menu.removeFromParent()
         
         // Spawn pipes repeatedly.
         addChild(poles)
@@ -124,13 +136,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         dragon!.physicsBody?.collisionBitMask = worldCategory | poleCategory
         dragon!.physicsBody?.contactTestBitMask = worldCategory | poleCategory
         
+        // Set the score to zero on game start.
         score = 0
         scoreLabel = SKLabelNode(fontNamed: "Superclarendon-BlackItalic")
-        scoreLabel.setScale(5)
-        scoreLabel.position = CGPointMake(self.size.width / 2, (4 * self.size.height) / 5)
-        scoreLabel.zPosition = 100
-        scoreLabel.text = "\(score!)"
-        addChild(scoreLabel)
+        scoreLabel?.setScale(5)
+        scoreLabel?.position = CGPointMake(self.size.width / 2, (4 * self.size.height) / 5)
+        scoreLabel?.zPosition = 100
+        scoreLabel?.text = "\(score!)"
+        addChild(scoreLabel!)
     }
     
     func setUpDragon() {
@@ -165,9 +178,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setUpPoles() {
         let pole = SKSpriteNode(imageNamed: "pole2")
-        pole.name = "pole"
         let gear = SKSpriteNode(imageNamed: "gear")
-        gear.name = "gear"
         let contactNode = SKNode()
         
         // Create a node for a single pole pair. Multiple pole pairs may be on the screen at once.
@@ -182,22 +193,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let y = CGFloat(arc4random()) % (self.size.height / 4)
         
         // Set up the poles and gears.
-        polePair.addChild(setUpPoleNode(CGPointMake(0, y), node: SKSpriteNode(imageNamed: "pole1")))
-        polePair.addChild(setUpPoleNode(CGPointMake(0, y + pole.size.height - poleGap - 45), node: SKSpriteNode(imageNamed: "gear")))
-        polePair.addChild(setUpPoleNode(CGPointMake(0, y + pole.size.height + poleGap), node: SKSpriteNode(imageNamed: "pole2")))
-        polePair.addChild(setUpPoleNode(CGPointMake(0, y + pole.size.height + 30), node: SKSpriteNode(imageNamed: "gear")))
+        polePair.addChild(setUpPoleNode(CGPointMake(0, y), node: SKSpriteNode(imageNamed: "pole1"), asset: "pole"))
+        polePair.addChild(setUpPoleNode(CGPointMake(0, y + pole.size.height - poleGap - 45), node: SKSpriteNode(imageNamed: "gear"), asset: "gear"))
+        polePair.addChild(setUpPoleNode(CGPointMake(0, y + pole.size.height + poleGap), node: SKSpriteNode(imageNamed: "pole2"), asset: "pole"))
+        polePair.addChild(setUpPoleNode(CGPointMake(0, y + pole.size.height + 30), node: SKSpriteNode(imageNamed: "gear"), asset: "gear"))
         
         // Set up the score contact node.
         contactNode.position = CGPointMake(pole.size.width + dragon!.size.width / 2, CGRectGetMidY(self.frame))
         contactNode.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(pole.size.width, self.frame.size.height))
         contactNode.physicsBody?.dynamic = false
+        
+        // The contact node should only consider contact with the dragon a collision.
         contactNode.physicsBody?.categoryBitMask = scoreCategory
         contactNode.physicsBody?.collisionBitMask = dragonCategory
         contactNode.physicsBody?.contactTestBitMask = dragonCategory
         contactNode.name = "contactNode"
         polePair.addChild(contactNode)
-        
-        polePair.removeAllActions()
         
         // Set the poles in motion, and remove them when the leave the left side of the screeen.
         let movePoles = SKAction.moveByX(-(self.size.width + gear.size.width * 2), y: 0, duration: 4)
@@ -207,16 +218,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         poles.addChild(polePair)
     }
     
-    func setUpPoleNode(point: CGPoint, node: SKSpriteNode) -> SKSpriteNode {
+    func setUpPoleNode(point: CGPoint, node: SKSpriteNode, asset: String) -> SKSpriteNode {
         node.position = point
         node.physicsBody = SKPhysicsBody(texture: node.texture!, size: node.texture!.size())
         node.physicsBody?.dynamic = false
-        if node.name == "gear" {
+        
+        // Set the zPosition of the node based on whether it is a gear or a pole.
+        if asset == "gear" {
             node.zPosition = 3
         }
         else {
             node.zPosition = 4
         }
+        
+        // Make sure the node only considers contact with the dragon a collision.
         node.physicsBody?.categoryBitMask = poleCategory
         node.physicsBody?.collisionBitMask = dragonCategory
         node.physicsBody?.contactTestBitMask = dragonCategory
@@ -272,8 +287,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
-        
+        // Start the game when a user taps on the get ready screen.
         if getReady.parent == self {
             getReady.removeFromParent()
             print("Beginning game")
@@ -284,7 +298,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let positionInScene = touch.locationInNode(self)
         let touchedNode = self.nodeAtPoint(positionInScene)
         
-        if tweetScoreButton.parent == self {
+        // Restart the game if a game over has occurred and the user touches OUTSIDE of the tweet score button.
+        if tweetScoreButton?.parent == self {
             if touchedNode.name == nil {
                 restart()
             }
@@ -292,54 +307,77 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if let name = touchedNode.name {
             if name == "playButton" {
+                // Run the game with machine learning off.
                 getPlayerReady()
+                machineLearningOn = false
             }
             else if name == "rateButton" {
                 //UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(APP_ID)&onlyLatestVersion=true&pageNumber=0&sortOrdering=1)")!)
                 print("Rate Button Pressed")
             }
             else if name == "twitterButton" {
+                // Run the game with machine learning on.
                 print("Twitter Button Pressed")
+                machineLearningOn = true
+                beginGame()
             }
             else if name == "tweetScore" {
                 print("Tweet Score Button Pressed")
             }
         }
         
+        // Apply an impulse to the dragon and reset the velocity on each tap.
         dragon?.physicsBody?.velocity = CGVectorMake(0, 0)
         dragon?.physicsBody?.applyImpulse(CGVectorMake(0, 250))
     }
    
     func didBeginContact(contact: SKPhysicsContact) {
-        
+        // Check to see if either node is a contact node for score detection.
         if ((contact.bodyA.categoryBitMask & scoreCategory) == scoreCategory || (contact.bodyB.categoryBitMask & scoreCategory) == scoreCategory) {
+            // Set the categoryBitMask of whichever node is the contactNode to an unused bit shift.
             if contact.bodyA.node?.name == "contactNode" {
                 contact.bodyA.categoryBitMask = 1 << 5
             }
             else {
                 contact.bodyB.categoryBitMask = 1 << 5
             }
+            // Increment the score.
             score! += 1
-            scoreLabel.text = "\(score!)"
+            scoreLabel?.text = "\(score!)"
         }
         else if contact.bodyA.categoryBitMask == (1 << 5) || contact.bodyB.categoryBitMask == (1 << 5) {
-            
+            // Do nothing.
         }
         else {
-            //restart()
-            presentGameOver()
-            // Stop the dragon.
-            dragon!.removeFromParent()
-            poles.removeFromParent()
+            if machineLearningOn! == false {
+                // Since machine learning is not running, present a game over.
+                presentGameOver()
+                // Stop the dragon.
+                dragon!.removeFromParent()
+                poles.removeFromParent()
+            }
+            else {
+                // Since machine learning is running, just reset the game state.
+                dragon?.removeFromParent() // Delete the current dragon.
+                setUpDragon() // Spawn a new dragon
+                self.removeAllActions() // Stop spawning poles.
+                poles.removeAllChildren() // Delete all remaining poles.
+                poles.removeFromParent() // Remove the poles node.
+                scoreLabel?.removeFromParent() // Remove the score so a duplicate score is not shown.
+                beginGame() // Begin again
+            }
         }
     }
     
     func restart() {
+        // Remove all children and actions so the next play doesn't spawn extra pipes.
         self.removeAllChildren()
         self.removeAllActions()
         
+        // Make sure no extra pipes are left over.
         poles.removeAllChildren()
         
+        // Set the game back up.
         setUpBackground()
         setUpMidground()
         setUpForeground()
@@ -347,17 +385,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         loadMenu()
         
+        // Reset the score.
         score! = 0
-        scoreLabel.text = "\(score!)"
+        scoreLabel?.text = "\(score!)"
     }
     
     func presentGameOver() {
+        // Show the tweet score button and add it to the scene.
         tweetScoreButton = SKSpriteNode(imageNamed: "tweetscorebutton")
-        tweetScoreButton.position = CGPointMake(self.size.width / 2, self.size.height / 2)
-        tweetScoreButton.zPosition = 8
-        tweetScoreButton.name = "tweetScore"
+        tweetScoreButton?.position = CGPointMake(self.size.width / 2, self.size.height / 2)
+        tweetScoreButton?.zPosition = 8
+        tweetScoreButton?.name = "tweetScore"
         
-        addChild(tweetScoreButton)
+        addChild(tweetScoreButton!)
         
         
     }
