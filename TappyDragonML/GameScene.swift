@@ -20,7 +20,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var foregroundLayer = SKNode()
     var poles = SKNode()
     var menu = SKNode()
+    var getReady = SKNode()
     var scoreLabel = SKLabelNode()
+    var tweetScoreButton = SKSpriteNode()
     
     var dragon: SKSpriteNode?
     
@@ -79,6 +81,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(menu)
     }
     
+    func getPlayerReady() {
+        menu.removeAllChildren()
+        getReady.zPosition = 4
+        
+        let getReadyLabel = SKSpriteNode(imageNamed: "get_ready")
+        getReadyLabel.position = CGPointMake(self.size.width / 2, (3 * self.size.height) / 4)
+        getReady.addChild(getReadyLabel)
+        
+        let tap = SKSpriteNode(imageNamed: "tap")
+        tap.position = CGPointMake(self.size.width / 2, self.size.height / 2)
+        getReady.addChild(tap)
+        
+        addChild(getReady)
+    }
+    
     func beginGame() {
         // Get rid of the menu
         menu.removeAllChildren()
@@ -108,10 +125,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         dragon!.physicsBody?.contactTestBitMask = worldCategory | poleCategory
         
         score = 0
-        scoreLabel = SKLabelNode(fontNamed: "MarkerFelt-Wide")
+        scoreLabel = SKLabelNode(fontNamed: "Superclarendon-BlackItalic")
         scoreLabel.setScale(5)
         scoreLabel.position = CGPointMake(self.size.width / 2, (4 * self.size.height) / 5)
-        scoreLabel.zPosition = 4
+        scoreLabel.zPosition = 100
         scoreLabel.text = "\(score!)"
         addChild(scoreLabel)
     }
@@ -155,6 +172,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Create a node for a single pole pair. Multiple pole pairs may be on the screen at once.
         let polePair = SKNode()
+        polePair.removeAllChildren()
         
         // Set the poles at a position off screen and in front of the background nodes.
         polePair.position = CGPointMake(self.size.width + gear.size.width, 0)
@@ -178,6 +196,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         contactNode.physicsBody?.contactTestBitMask = dragonCategory
         contactNode.name = "contactNode"
         polePair.addChild(contactNode)
+        
+        polePair.removeAllActions()
         
         // Set the poles in motion, and remove them when the leave the left side of the screeen.
         let movePoles = SKAction.moveByX(-(self.size.width + gear.size.width * 2), y: 0, duration: 4)
@@ -254,13 +274,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
         
+        if getReady.parent == self {
+            getReady.removeFromParent()
+            print("Beginning game")
+            beginGame()
+        }
+        
         let touch = touches.first! as UITouch
         let positionInScene = touch.locationInNode(self)
         let touchedNode = self.nodeAtPoint(positionInScene)
         
+        if tweetScoreButton.parent == self {
+            if touchedNode.name == nil {
+                restart()
+            }
+        }
+        
         if let name = touchedNode.name {
             if name == "playButton" {
-                beginGame()
+                getPlayerReady()
             }
             else if name == "rateButton" {
                 //UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(APP_ID)&onlyLatestVersion=true&pageNumber=0&sortOrdering=1)")!)
@@ -268,6 +300,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             else if name == "twitterButton" {
                 print("Twitter Button Pressed")
+            }
+            else if name == "tweetScore" {
+                print("Tweet Score Button Pressed")
             }
         }
         
@@ -291,24 +326,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         else {
-            restart()
+            //restart()
+            presentGameOver()
             // Stop the dragon.
-            dragon?.physicsBody?.velocity = CGVectorMake(0, 0)
+            dragon!.removeFromParent()
+            poles.removeFromParent()
         }
     }
     
     func restart() {
-        resetScene()
+        self.removeAllChildren()
+        self.removeAllActions()
+        
+        poles.removeAllChildren()
+        
+        setUpBackground()
+        setUpMidground()
+        setUpForeground()
+        setUpDragon()
+        
+        loadMenu()
+        
         score! = 0
         scoreLabel.text = "\(score!)"
     }
     
-    func resetScene() {
-        // Center the dragon again.
-        dragon!.runAction(SKAction.moveTo(CGPointMake(self.size.width / 2, self.size.height / 2), duration: 0))
+    func presentGameOver() {
+        tweetScoreButton = SKSpriteNode(imageNamed: "tweetscorebutton")
+        tweetScoreButton.position = CGPointMake(self.size.width / 2, self.size.height / 2)
+        tweetScoreButton.zPosition = 8
+        tweetScoreButton.name = "tweetScore"
         
-        // Remove all poles.
-        poles.removeAllChildren()
+        addChild(tweetScoreButton)
+        
+        
     }
     
     func clamp(min: CGFloat, max: CGFloat, value: CGFloat) -> CGFloat {
