@@ -17,7 +17,6 @@
 		85468C291CA61715000EE8C1 /* TappyDragonMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85468C281CA61715000EE8C1 /* TappyDragonMLTests.swift */; };
 		85468C341CA61715000EE8C1 /* TappyDragonMLUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85468C331CA61715000EE8C1 /* TappyDragonMLUITests.swift */; };
 		85468C761CA6214D000EE8C1 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 85468C751CA6214D000EE8C1 /* Assets */; };
-		85468C781CA6340A000EE8C1 /* Dragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85468C771CA6340A000EE8C1 /* Dragon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +53,6 @@
 		85468C331CA61715000EE8C1 /* TappyDragonMLUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappyDragonMLUITests.swift; sourceTree = "<group>"; };
 		85468C351CA61715000EE8C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85468C751CA6214D000EE8C1 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
-		85468C771CA6340A000EE8C1 /* Dragon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dragon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +138,6 @@
 		85468C701CA61BA4000EE8C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				85468C771CA6340A000EE8C1 /* Dragon.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -297,7 +294,6 @@
 			files = (
 				85468C141CA61715000EE8C1 /* GameScene.swift in Sources */,
 				85468C161CA61715000EE8C1 /* GameViewController.swift in Sources */,
-				85468C781CA6340A000EE8C1 /* Dragon.swift in Sources */,
 				85468C101CA61715000EE8C1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
