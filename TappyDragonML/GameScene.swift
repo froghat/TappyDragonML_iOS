@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let poleGap: CGFloat = 600
     
@@ -18,8 +18,15 @@ class GameScene: SKScene {
     var backgroundLayer = SKNode()
     var midgroundLayer = SKNode()
     var foregroundLayer = SKNode()
+    var poles = SKNode()
+    var menu = SKNode()
     
     var dragon: SKSpriteNode?
+    
+    // SKPhysicsContact constants
+    let dragonCategory: UInt32 = 1 << 0
+    let worldCategory: UInt32 = 1 << 1
+    let poleCategory: UInt32 = 1 << 2
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) is not used in this app")
@@ -31,42 +38,97 @@ class GameScene: SKScene {
         setUpBackground()
         setUpMidground()
         setUpForeground()
-        
         setUpDragon()
         
-        print("Before Selector")
+        loadMenu()
+    }
+    
+    func loadMenu() {
+        let title = SKSpriteNode(imageNamed: "title")
+        title.position = CGPointMake(self.size.width / 2, (self.size.height * 3) / 4)
+        title.zPosition = 3
+        menu.addChild(title)
+        
+        let playButton = SKSpriteNode(imageNamed: "playbutton")
+        playButton.name = "playButton"
+        playButton.position = CGPointMake((7 * self.size.width) / 24, (2 * self.size.height) / 6)
+        playButton.zPosition = 3
+        menu.addChild(playButton)
+        
+        let rateButton = SKSpriteNode(imageNamed: "ratebutton2")
+        rateButton.position = CGPointMake((17 * self.size.width) / 24, (2 * self.size.height) / 6)
+        rateButton.zPosition = 3
+        menu.addChild(rateButton)
+        
+        let twitterButton = SKSpriteNode(imageNamed: "twitterbutton")
+        twitterButton.position = CGPointMake(0.5 * self.size.width, 0.22 * self.size.height)
+        twitterButton.zPosition = 3
+        menu.addChild(twitterButton)
+        
+        let froghatLabel = SKSpriteNode(imageNamed: "froghatsoftware")
+        froghatLabel.position = CGPointMake(0.5 * self.size.width, 0.11 * self.size.height)
+        froghatLabel.zPosition = 3
+        menu.addChild(froghatLabel)
+        
+        addChild(menu)
+    }
+    
+    func beginGame() {
+        // Get rid of the menu
+        menu.removeAllChildren()
+        
+        // Spawn pipes repeatedly.
+        addChild(poles)
         let spawn = SKAction.performSelector(#selector(setUpPoles), onTarget: self)
-        print("Past Selector")
         let delay = SKAction.waitForDuration(2)
         let spawnThenDelay = SKAction.sequence([spawn, delay])
         let spawnThenDelayForever = SKAction.repeatActionForever(spawnThenDelay)
         self.runAction(spawnThenDelayForever)
+        
+        // Set up physics the world's physics, including gravity.
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
+        self.physicsBody?.categoryBitMask = worldCategory
+        self.physicsBody?.collisionBitMask = dragonCategory
+        self.physicsBody?.contactTestBitMask = dragonCategory
+        self.physicsWorld.gravity = CGVectorMake(0.0, -5.0)
+        self.physicsWorld.contactDelegate = self
+        
+        // Set up the physics of the dragon.
+        dragon!.physicsBody = SKPhysicsBody(texture: dragon!.texture!, size: dragon!.texture!.size())
+        dragon!.physicsBody!.dynamic = true
+        dragon!.physicsBody!.allowsRotation = false
+        dragon!.physicsBody?.categoryBitMask = dragonCategory
+        dragon!.physicsBody?.collisionBitMask = worldCategory | poleCategory
+        dragon!.physicsBody?.contactTestBitMask = worldCategory | poleCategory
     }
     
     func setUpDragon() {
         dragon = SKSpriteNode(imageNamed: "dragon0")
         
-        dragon!.anchorPoint = self.convertPointToView(CGPoint(x: dragon!.size.width / 2, y: dragon!.size.height / 2))
-        dragon!.position = CGPoint(x: (self.size.width / 2), y: (self.size.height / 2))
+        // Set the sprite's position.
+        //dragon!.anchorPoint = self.convertPointToView(CGPoint(x: dragon!.size.width / 2, y: dragon!.size.height / 2))
+        dragon!.position = CGPointMake((self.size.width / 2), (self.size.height / 2))
         dragon!.zPosition = 3
         
-        dragon!.physicsBody = SKPhysicsBody(circleOfRadius: dragon!.size.height / 2)
-        dragon!.physicsBody!.dynamic = true
-        dragon!.physicsBody!.allowsRotation = false
-        
+        // Animate the dragon.
         var textures = [SKTexture]()
         let atlas = SKTextureAtlas(named: "dragon.atlas")
         
+        // Load frames for flapping from up to down.
         for i in 0...7 {
             textures.append(atlas.textureNamed("dragon\(i)"))
         }
-        for i in 0...6 {
+        
+        // Load frames for flapping back up.
+        for i in 1...6 {
             textures.append(atlas.textureNamed("dragon\(6 - i)"))
         }
         
+        // Repeat the frame sequence endlessly.
         let action = SKAction.animateWithTextures(textures, timePerFrame: 0.05)
         dragon!.runAction(SKAction.repeatActionForever(action))
         
+        // Add the dragon to the scene.
         addChild(dragon!)
     }
     
@@ -76,41 +138,52 @@ class GameScene: SKScene {
         let bottomGear = SKSpriteNode(imageNamed: "gear")
         let topGear = SKSpriteNode(imageNamed: "gear")
         
+        // Create a node for a single pole pair. Multiple pole pairs may be on the screen at once.
         let polePair = SKNode()
         
-        polePair.position = CGPointMake(self.size.width + bottomPole.size.width * 2, 0)
+        // Set the poles at a position off screen and in front of the background nodes.
+        polePair.position = CGPointMake(self.size.width + bottomGear.size.width, 0)
         polePair.zPosition = 3
         
-        let y = CGFloat(arc4random()) % (self.size.height / 3)
+        // Chose a random height for the pole gap within a certain range.
+        let y = CGFloat(arc4random()) % (self.size.height / 4)
         
+        // Set up the bottom pole.
         bottomPole.position = CGPointMake(0, y)
-        bottomPole.physicsBody = SKPhysicsBody(rectangleOfSize: bottomPole.size)
+        bottomPole.physicsBody = SKPhysicsBody(texture: bottomPole.texture!, size: bottomPole.texture!.size())
         bottomPole.physicsBody?.dynamic = false
-        bottomGear.position = CGPointMake(0, y + bottomPole.size.height - poleGap - 25)
-        bottomGear.physicsBody = SKPhysicsBody(circleOfRadius: bottomGear.size.height / 2 - 10)
+        polePair.addChild(bottomPole)
+        
+        // Set up the bottom pole's gear.
+        bottomGear.position = CGPointMake(0, y + bottomPole.size.height - poleGap)
+        bottomGear.physicsBody = SKPhysicsBody(texture: bottomGear.texture!, size: bottomGear.texture!.size())
         bottomGear.physicsBody?.dynamic = false
         bottomGear.zPosition = 4
-        polePair.addChild(bottomPole)
         polePair.addChild(bottomGear)
         
+        // Set up the top pole.
         topPole.position = CGPointMake(0, y + topPole.size.height + poleGap)
-        topPole.physicsBody = SKPhysicsBody(rectangleOfSize: topPole.size)
+        topPole.physicsBody = SKPhysicsBody(texture: topPole.texture!, size: topPole.texture!.size())
         topPole.physicsBody?.dynamic = false
-        topGear.position = CGPointMake(0, y + topPole.size.height + 7)
-        topGear.physicsBody = SKPhysicsBody(circleOfRadius: topGear.size.height / 2 - 10)
+        polePair.addChild(topPole)
+        
+        // Set u the top pole's gear.
+        topGear.position = CGPointMake(0, y + topPole.size.height)
+        topGear.physicsBody = SKPhysicsBody(texture: topGear.texture!, size: topGear.texture!.size())
         topGear.physicsBody?.dynamic = false
         topGear.zPosition = 4
-        polePair.addChild(topPole)
         polePair.addChild(topGear)
         
-        let movePoles = SKAction.moveByX(-self.size.width * 1.5, y: 0, duration: 4)
+        // Set the poles in motion, and remove them when the leave the left side of the screeen.
+        let movePoles = SKAction.moveByX(-(self.size.width + bottomGear.size.width * 2), y: 0, duration: 4)
         let removePoles = SKAction.removeFromParent()
         polePair.runAction(SKAction.sequence([movePoles, removePoles]))
         
-        foregroundLayer.addChild(polePair)
+        poles.addChild(polePair)
     }
     
     func setUpBackground() {
+        // The background should be static
         let background = SKSpriteNode(imageNamed: "background")
         background.anchorPoint = CGPoint(x: 0.0, y: 0)
         background.position = CGPoint(x: 0.0, y: -background.size.height + self.size.height)
@@ -125,6 +198,7 @@ class GameScene: SKScene {
         addChild(midgroundLayer)
         midgroundLayer.zPosition = 1
         
+        // Animate the midground layer.
         prepareAnimation("layer2dark", layer: midgroundLayer, y: 375, duration: 25)
         prepareAnimation("layer3", layer: midgroundLayer, y: 0, duration: 15)
     }
@@ -133,6 +207,7 @@ class GameScene: SKScene {
         addChild(foregroundLayer)
         foregroundLayer.zPosition = 2
         
+        // Animate the foreground layer.
         prepareAnimation("layer1dark", layer: foregroundLayer, y: 0, duration: 5)
     }
     
@@ -156,12 +231,42 @@ class GameScene: SKScene {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
-        dragon!.physicsBody!.velocity = CGVectorMake(0, 0)
-        dragon!.physicsBody!.applyImpulse(CGVectorMake(0, 400))
+        
+        let touch = touches.first! as UITouch
+        let positionInScene = touch.locationInNode(self)
+        let touchedNode = self.nodeAtPoint(positionInScene)
+        
+        if let name = touchedNode.name {
+            if name == "playButton" {
+                beginGame()
+            }
+        }
+        
+        dragon?.physicsBody?.velocity = CGVectorMake(0, 0)
+        dragon?.physicsBody?.applyImpulse(CGVectorMake(0, 200))
     }
    
+    func didBeginContact(contact: SKPhysicsContact) {
+        restart()
+        
+        // Stop the dragon.
+        dragon?.physicsBody?.velocity = CGVectorMake(0, 0)
+    }
+    
+    func restart() {
+        resetScene()
+    }
+    
+    func resetScene() {
+        // Center the dragon again.
+        dragon!.runAction(SKAction.moveTo(CGPointMake(self.size.width / 2, self.size.height / 2), duration: 0))
+        
+        // Remove all poles.
+        poles.removeAllChildren()
+    }
     
     func clamp(min: CGFloat, max: CGFloat, value: CGFloat) -> CGFloat {
+        // Use this to only allow a specific range of dragon tilt.
         if value > max {
             return max
         }
@@ -175,6 +280,8 @@ class GameScene: SKScene {
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        dragon?.zRotation = clamp(-1, max: 0.5, value: dragon!.physicsBody!.velocity.dy * (dragon!.physicsBody!.velocity.dy < 0 ? 0.001 : 0.0005))
+        if dragon?.physicsBody != nil {
+            dragon!.zRotation = clamp(-1, max: 0.5, value: dragon!.physicsBody!.velocity.dy * (dragon!.physicsBody!.velocity.dy < 0 ? 0.001 : 0.0005))
+        }
     }
 }
