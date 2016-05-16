@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +18,34 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="hoodie_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZiJ-7H-CMX">
+                                <rect key="frame" x="91" y="216" width="417" height="169"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ZiJ-7H-CMX" secondAttribute="height" multiplier="417:169" id="AK5-HO-o6M"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZiJ-7H-CMX" secondAttribute="trailing" constant="20" id="1Gd-RF-G9P"/>
+                            <constraint firstItem="ZiJ-7H-CMX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="63y-FT-yPt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZiJ-7H-CMX" secondAttribute="trailing" constant="20" id="Jw3-N0-xfh"/>
+                            <constraint firstItem="ZiJ-7H-CMX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="K6h-IN-LYw"/>
+                            <constraint firstItem="ZiJ-7H-CMX" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="20" id="NEU-hD-1oR"/>
+                            <constraint firstItem="ZiJ-7H-CMX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="RpS-0d-FXO"/>
+                            <constraint firstItem="ZiJ-7H-CMX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="TZC-pn-bZa"/>
+                            <constraint firstItem="ZiJ-7H-CMX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="UBm-9e-JjS"/>
+                            <constraint firstItem="ZiJ-7H-CMX" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="20" id="gx4-kd-6cp"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="K6h-IN-LYw"/>
+                                <exclude reference="RpS-0d-FXO"/>
+                                <exclude reference="TZC-pn-bZa"/>
+                                <exclude reference="UBm-9e-JjS"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +53,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="hoodie_logo.png" width="4635" height="1715"/>
+    </resources>
 </document>
