@@ -391,9 +391,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func presentGameOver() {
+        // Present a game over message.
+        let gameOverMessage = SKSpriteNode(imageNamed: "gameover")
+        gameOverMessage.position = CGPointMake(self.size.width / 2, (5 * self.size.height) / 8)
+        gameOverMessage.zPosition = 8
+        
+        addChild(gameOverMessage)
+        
         // Show the tweet score button and add it to the scene.
         tweetScoreButton = SKSpriteNode(imageNamed: "tweetscorebutton")
-        tweetScoreButton?.position = CGPointMake(self.size.width / 2, self.size.height / 2)
+        tweetScoreButton?.position = CGPointMake(self.size.width / 2, (3 * self.size.height) / 8)
         tweetScoreButton?.zPosition = 8
         tweetScoreButton?.name = "tweetScore"
         
