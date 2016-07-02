@@ -12,8 +12,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let poleGap: CGFloat = 600
     
-    let screenWidth = UIScreen.mainScreen().bounds.width
-    let screenHeight = UIScreen.mainScreen().bounds.height
+    let screenWidth = UIScreen.main().bounds.width
+    let screenHeight = UIScreen.main().bounds.height
     
     var backgroundLayer = SKNode()
     var midgroundLayer = SKNode()
@@ -56,34 +56,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func loadMenu() {
         // Tappy Dragon Title
         let title = SKSpriteNode(imageNamed: "title")
-        title.position = CGPointMake(self.size.width / 2, (self.size.height * 3) / 4)
+        title.position = CGPoint(x: self.size.width / 2, y: (self.size.height * 3) / 4)
         title.zPosition = 3
         menu.addChild(title)
         
         // Play Button
         let playButton = SKSpriteNode(imageNamed: "playbutton")
         playButton.name = "playButton"
-        playButton.position = CGPointMake((7 * self.size.width) / 24, (2 * self.size.height) / 6)
+        playButton.position = CGPoint(x: (7 * self.size.width) / 24, y: (2 * self.size.height) / 6)
         playButton.zPosition = 3
         menu.addChild(playButton)
         
         // Rate Button
         let rateButton = SKSpriteNode(imageNamed: "ratebutton2")
         rateButton.name = "rateButton"
-        rateButton.position = CGPointMake((17 * self.size.width) / 24, (2 * self.size.height) / 6)
+        rateButton.position = CGPoint(x: (17 * self.size.width) / 24, y: (2 * self.size.height) / 6)
         rateButton.zPosition = 3
         menu.addChild(rateButton)
         
         // Twitter Button
         let twitterButton = SKSpriteNode(imageNamed: "twitterbutton")
         twitterButton.name = "twitterButton"
-        twitterButton.position = CGPointMake(0.5 * self.size.width, 0.22 * self.size.height)
+        twitterButton.position = CGPoint(x: 0.5 * self.size.width, y: 0.22 * self.size.height)
         twitterButton.zPosition = 3
         menu.addChild(twitterButton)
         
         // Froghat Software Label
         let froghatLabel = SKSpriteNode(imageNamed: "froghatsoftware")
-        froghatLabel.position = CGPointMake(0.5 * self.size.width, 0.11 * self.size.height)
+        froghatLabel.position = CGPoint(x: 0.5 * self.size.width, y: 0.11 * self.size.height)
         froghatLabel.zPosition = 3
         menu.addChild(froghatLabel)
         
@@ -98,11 +98,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         getReady.zPosition = 4
         
         let getReadyLabel = SKSpriteNode(imageNamed: "get_ready")
-        getReadyLabel.position = CGPointMake(self.size.width / 2, (3 * self.size.height) / 4)
+        getReadyLabel.position = CGPoint(x: self.size.width / 2, y: (3 * self.size.height) / 4)
         getReady.addChild(getReadyLabel)
         
         let tap = SKSpriteNode(imageNamed: "tap")
-        tap.position = CGPointMake(self.size.width / 2, self.size.height / 2)
+        tap.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         getReady.addChild(tap)
         
         addChild(getReady)
@@ -114,23 +114,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Spawn pipes repeatedly.
         addChild(poles)
-        let spawn = SKAction.performSelector(#selector(setUpPoles), onTarget: self)
-        let delay = SKAction.waitForDuration(2)
+        let spawn = SKAction.perform(#selector(setUpPoles), onTarget: self)
+        let delay = SKAction.wait(forDuration: 2)
         let spawnThenDelay = SKAction.sequence([spawn, delay])
-        let spawnThenDelayForever = SKAction.repeatActionForever(spawnThenDelay)
-        self.runAction(spawnThenDelayForever)
+        let spawnThenDelayForever = SKAction.repeatForever(spawnThenDelay)
+        self.run(spawnThenDelayForever)
         
         // Set up physics the world's physics, including gravity.
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         self.physicsBody?.categoryBitMask = worldCategory
         self.physicsBody?.collisionBitMask = dragonCategory
         self.physicsBody?.contactTestBitMask = dragonCategory
-        self.physicsWorld.gravity = CGVectorMake(0.0, -8.0)
+        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -8.0)
         self.physicsWorld.contactDelegate = self
         
         // Set up the physics of the dragon.
         dragon!.physicsBody = SKPhysicsBody(texture: dragon!.texture!, size: dragon!.texture!.size())
-        dragon!.physicsBody!.dynamic = true
+        dragon!.physicsBody!.isDynamic = true
         dragon!.physicsBody!.allowsRotation = false
         dragon!.physicsBody?.categoryBitMask = dragonCategory
         dragon!.physicsBody?.collisionBitMask = worldCategory | poleCategory
@@ -140,7 +140,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         score = 0
         scoreLabel = SKLabelNode(fontNamed: "Superclarendon-BlackItalic")
         scoreLabel?.setScale(5)
-        scoreLabel?.position = CGPointMake(self.size.width / 2, (4 * self.size.height) / 5)
+        scoreLabel?.position = CGPoint(x: self.size.width / 2, y: (4 * self.size.height) / 5)
         scoreLabel?.zPosition = 100
         scoreLabel?.text = "\(score!)"
         addChild(scoreLabel!)
@@ -151,7 +151,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Set the sprite's position.
         //dragon!.anchorPoint = self.convertPointToView(CGPoint(x: dragon!.size.width / 2, y: dragon!.size.height / 2))
-        dragon!.position = CGPointMake((self.size.width / 2), (self.size.height / 2))
+        dragon!.position = CGPoint(x: (self.size.width / 2), y: (self.size.height / 2))
         dragon!.zPosition = 3
         
         // Animate the dragon.
@@ -169,8 +169,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         // Repeat the frame sequence endlessly.
-        let action = SKAction.animateWithTextures(textures, timePerFrame: 0.05)
-        dragon!.runAction(SKAction.repeatActionForever(action))
+        let action = SKAction.animate(with: textures, timePerFrame: 0.05)
+        dragon!.run(SKAction.repeatForever(action))
         
         // Add the dragon to the scene.
         addChild(dragon!)
@@ -186,22 +186,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         polePair.removeAllChildren()
         
         // Set the poles at a position off screen and in front of the background nodes.
-        polePair.position = CGPointMake(self.size.width + gear.size.width, 0)
+        polePair.position = CGPoint(x: self.size.width + gear.size.width, y: 0)
         polePair.zPosition = 4
         
         // Chose a random height for the pole gap within a certain range.
-        let y = CGFloat(arc4random()) % (self.size.height / 4)
+        let y = CGFloat(arc4random()).truncatingRemainder(dividingBy: (self.size.height / 4))
         
         // Set up the poles and gears.
-        polePair.addChild(setUpPoleNode(CGPointMake(0, y), node: SKSpriteNode(imageNamed: "pole1"), asset: "pole"))
-        polePair.addChild(setUpPoleNode(CGPointMake(0, y + pole.size.height - poleGap - 45), node: SKSpriteNode(imageNamed: "gear"), asset: "gear"))
-        polePair.addChild(setUpPoleNode(CGPointMake(0, y + pole.size.height + poleGap), node: SKSpriteNode(imageNamed: "pole2"), asset: "pole"))
-        polePair.addChild(setUpPoleNode(CGPointMake(0, y + pole.size.height + 30), node: SKSpriteNode(imageNamed: "gear"), asset: "gear"))
+        polePair.addChild(setUpPoleNode(point: CGPoint(x: 0, y: y), node: SKSpriteNode(imageNamed: "pole1"), asset: "pole"))
+        polePair.addChild(setUpPoleNode(point: CGPoint(x: 0, y: y + pole.size.height - poleGap - 45), node: SKSpriteNode(imageNamed: "gear"), asset: "gear"))
+        polePair.addChild(setUpPoleNode(point: CGPoint(x: 0, y: y + pole.size.height + poleGap), node: SKSpriteNode(imageNamed: "pole2"), asset: "pole"))
+        polePair.addChild(setUpPoleNode(point: CGPoint(x: 0, y: y + pole.size.height + 30), node: SKSpriteNode(imageNamed: "gear"), asset: "gear"))
         
         // Set up the score contact node.
-        contactNode.position = CGPointMake(pole.size.width + dragon!.size.width / 2, CGRectGetMidY(self.frame))
-        contactNode.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(pole.size.width, self.frame.size.height))
-        contactNode.physicsBody?.dynamic = false
+        contactNode.position = CGPoint(x: pole.size.width + dragon!.size.width / 2, y: self.frame.midY)
+        contactNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: pole.size.width, height: self.frame.size.height))
+        contactNode.physicsBody?.isDynamic = false
         
         // The contact node should only consider contact with the dragon a collision.
         contactNode.physicsBody?.categoryBitMask = scoreCategory
@@ -211,9 +211,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         polePair.addChild(contactNode)
         
         // Set the poles in motion, and remove them when the leave the left side of the screeen.
-        let movePoles = SKAction.moveByX(-(self.size.width + gear.size.width * 2), y: 0, duration: 4)
+        let movePoles = SKAction.moveBy(x: -(self.size.width + gear.size.width * 2), y: 0, duration: 4)
         let removePoles = SKAction.removeFromParent()
-        polePair.runAction(SKAction.sequence([movePoles, removePoles]))
+        polePair.run(SKAction.sequence([movePoles, removePoles]))
         
         poles.addChild(polePair)
     }
@@ -221,7 +221,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func setUpPoleNode(point: CGPoint, node: SKSpriteNode, asset: String) -> SKSpriteNode {
         node.position = point
         node.physicsBody = SKPhysicsBody(texture: node.texture!, size: node.texture!.size())
-        node.physicsBody?.dynamic = false
+        node.physicsBody?.isDynamic = false
         
         // Set the zPosition of the node based on whether it is a gear or a pole.
         if asset == "gear" {
@@ -256,8 +256,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         midgroundLayer.zPosition = 1
         
         // Animate the midground layer.
-        prepareAnimation("layer2dark", layer: midgroundLayer, y: 375, duration: 25)
-        prepareAnimation("layer3", layer: midgroundLayer, y: 0, duration: 15)
+        prepareAnimation(imageName: "layer2dark", layer: midgroundLayer, y: 375, duration: 25)
+        prepareAnimation(imageName: "layer3", layer: midgroundLayer, y: 0, duration: 15)
     }
     
     func setUpForeground() {
@@ -265,28 +265,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         foregroundLayer.zPosition = 2
         
         // Animate the foreground layer.
-        prepareAnimation("layer1dark", layer: foregroundLayer, y: 0, duration: 5)
+        prepareAnimation(imageName: "layer1dark", layer: foregroundLayer, y: 0, duration: 5)
     }
     
-    func prepareAnimation(imageName: String, layer: SKNode, y: CGFloat, duration: NSTimeInterval) {
+    func prepareAnimation(imageName: String, layer: SKNode, y: CGFloat, duration: TimeInterval) {
         for i in 0..<2 {
             let node = SKSpriteNode(imageNamed: imageName)
             node.anchorPoint = CGPoint(x: 0, y: 0)
             node.position = CGPoint(x: (node.size.width * CGFloat(i)) + 0, y: y)
-            node.runAction(animateLeft(node, y: 0, duration: duration))
+            node.run(animateLeft(node: node, y: 0, duration: duration))
             layer.addChild(node)
         }
     }
     
-    func animateLeft(node: SKSpriteNode, y: CGFloat, duration: NSTimeInterval) -> SKAction {
-        let moveLeft = SKAction.moveByX(-node.size.width, y: y, duration: duration)
-        let moveReset = SKAction.moveByX(node.size.width, y: y, duration: 0)
+    func animateLeft(node: SKSpriteNode, y: CGFloat, duration: TimeInterval) -> SKAction {
+        let moveLeft = SKAction.moveBy(x: -node.size.width, y: y, duration: duration)
+        let moveReset = SKAction.moveBy(x: node.size.width, y: y, duration: 0)
         let moveLoop = SKAction.sequence([moveLeft, moveReset])
         
-        return SKAction.repeatActionForever(moveLoop)
+        return SKAction.repeatForever(moveLoop)
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Start the game when a user taps on the get ready screen.
         if getReady.parent == self {
             getReady.removeFromParent()
@@ -295,8 +295,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         let touch = touches.first! as UITouch
-        let positionInScene = touch.locationInNode(self)
-        let touchedNode = self.nodeAtPoint(positionInScene)
+        let positionInScene = touch.location(in: self)
+        let touchedNode = self.atPoint(positionInScene)
         
         // Restart the game if a game over has occurred and the user touches OUTSIDE of the tweet score button.
         if tweetScoreButton?.parent == self {
@@ -327,11 +327,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         // Apply an impulse to the dragon and reset the velocity on each tap.
-        dragon?.physicsBody?.velocity = CGVectorMake(0, 0)
-        dragon?.physicsBody?.applyImpulse(CGVectorMake(0, 250))
+        dragon?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+        dragon?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 250))
     }
    
-    func didBeginContact(contact: SKPhysicsContact) {
+    func didBegin(_ contact: SKPhysicsContact) {
         // Check to see if either node is a contact node for score detection.
         if ((contact.bodyA.categoryBitMask & scoreCategory) == scoreCategory || (contact.bodyB.categoryBitMask & scoreCategory) == scoreCategory) {
             // Set the categoryBitMask of whichever node is the contactNode to an unused bit shift.
@@ -393,14 +393,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func presentGameOver() {
         // Present a game over message.
         let gameOverMessage = SKSpriteNode(imageNamed: "gameover")
-        gameOverMessage.position = CGPointMake(self.size.width / 2, (5 * self.size.height) / 8)
+        gameOverMessage.position = CGPoint(x: self.size.width / 2, y: (5 * self.size.height) / 8)
         gameOverMessage.zPosition = 8
         
         addChild(gameOverMessage)
         
         // Show the tweet score button and add it to the scene.
         tweetScoreButton = SKSpriteNode(imageNamed: "tweetscorebutton")
-        tweetScoreButton?.position = CGPointMake(self.size.width / 2, (3 * self.size.height) / 8)
+        tweetScoreButton?.position = CGPoint(x: self.size.width / 2, y: (3 * self.size.height) / 8)
         tweetScoreButton?.zPosition = 8
         tweetScoreButton?.name = "tweetScore"
         
@@ -422,10 +422,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    override func update(currentTime: CFTimeInterval) {
+    override func update(_ currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         if dragon?.physicsBody != nil {
-            dragon!.zRotation = clamp(-0.5, max: 0.5, value: dragon!.physicsBody!.velocity.dy * (dragon!.physicsBody!.velocity.dy < 0 ? 0.001 : 0.0005))
+            dragon!.zRotation = clamp(min: -0.5, max: 0.5, value: dragon!.physicsBody!.velocity.dy * (dragon!.physicsBody!.velocity.dy < 0 ? 0.001 : 0.0005))
         }
     }
 }
