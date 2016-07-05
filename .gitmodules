@@ -1,0 +1,3 @@
+[submodule "FlappyBirdRL"]
+	path = FlappyBirdRL
+	url = https://github.com/SarvagyaVaish/FlappyBirdRL.git
